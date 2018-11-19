@@ -1,0 +1,14 @@
+Let us we have to download the files from the website which needs user_is and password to download the files.
+You are also under the proxy server. Hence steps are process is as follows:
+step 1) # vim /etc/wgetrc
+        Add the following details: 
+          http_proxy=http://username:password@proxy:port
+          https_proxy=https://username:password@proxy:port
+        Save the file.
+step 2) In terminal type:
+        $ wget --user=Username --ask-password -r --no-parent http://downloadLinkUrl
+        
+        Fill the Username for the site to download in the above link.
+        It will ask password for the site to download the files from the site
+       
+Step 4) Done !!
