@@ -16,3 +16,7 @@ Step 4) Done !!
                         OR
                         
 Alternate:         $  wget --user=Username --ask-password -r --no-parent http://downloadLinkUrl  -e http_proxy="http://username:password@proxy:port"
+
+        Fill the Username for the site to download in the above link.
+        It will ask password for the site to download the files from the site
+       
