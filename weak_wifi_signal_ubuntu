@@ -1,0 +1,47 @@
+
+follow the link: https://askubuntu.com/questions/590414/wifi-problems-with-rtl8723be-in-ubuntu-14-04
+
+Steps as follows:
+1) install required packages
+     $  sudo apt-get install build-essential git
+
+2) git clone new realtek wifi modules
+     $  git clone https://github.com/lwfinger/rtlwifi_new/
+
+3) enter the directory
+     $ cd rtlwifi_new
+
+4) build it
+     $ make
+
+5) install
+     $ sudo make install
+
+6) Now you can reboot or unload/load modules
+  i) unload modules
+     $ sudo modprobe -r rtl8723be
+ ii) load new module
+     $ sudo modprobe rtl8723be
+
+if it still doesn't work, try the solution from this post
+     $ echo "options rtl8723be fwlps=0" | sudo tee /etc/modprobe.d/rtl8723be
+     
+     
+Note: After each kernel update, you need to rebuild the modules. That is,
+
+After every kernel update:
+    $ cd rtlwifi_new
+
+Clean previous builds
+    $ make clean
+
+Update git repository
+    $ git pull
+
+Compile
+    $ make clean && make
+
+Install
+    $ sudo make install
+
+reboot or unload/load modules
