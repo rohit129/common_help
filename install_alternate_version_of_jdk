@@ -1,0 +1,72 @@
+Objective: Install the JDK-12 when there is already OpenJDk-8 present in the ubuntu.
+
+Step 1: 
+=======
+Check the current version.
+
+$ java -version
+Output:
+openjdk version "1.8.0_151"
+OpenJDK Runtime Environment (build 1.8.0_151-8u151-b12-0ubuntu0.16.04.2-b12)
+OpenJDK 64-Bit Server VM (build 25.151-b12, mixed mode)
+
+Step 2: 
+=======
+Download the installer for your distribution. (Let's say 'jdk-12_linux-x64_bin.deb').
+Install this deb file using:
+
+$ dpkg -i jdk-12_linux-x64_bin.deb
+
+Step 3: 
+=======
+Add Oracle JDK 12 to the path
+
+$ ls /usr/lib/jvm/
+Output:
+  java-8-openjdk-amd64  jdk-12
+
+Enter the following path to either to a new created file "/etc/profile.d/jdk12.sh" or ~/.bashrc
+  export JAVA_HOME="/usr/lib/jvm/jdk-12"
+  export PATH="$PATH:${JAVA_HOME}/bin"
+
+Now, restart your computer with the following command:
+  $ sudo reboot
+
+Step 4:
+=======
+Tell the system that there's a new Java version available: 
+
+  $ sudo update-alternatives --install "/usr/bin/java" "java" "/usr/lib/jvm/jdk1.8.0_version/bin/java" 1
+  
+Step 5:
+=======
+Set the new JDK as the default using the following command:
+
+  $ sudo update-alternatives --config java
+  
+Output:
+  Selection    Path                                            Priority   Status
+------------------------------------------------------------
+* 0            /usr/lib/jvm/java-8-openjdk-amd64/jre/bin/java   1081      auto mode
+  1            /usr/lib/jvm/java-8-openjdk-amd64/jre/bin/java   1081      manual mode
+  2            /usr/lib/jvm/jdk-12/bin/java                     1         manual mode
+
+Press <enter> to keep the current choice[*], or type selection number:
+
+Press 2 and press enter
+
+Step 6:
+=======
+Make sure your system is using the correct JDK:
+
+  $ java -version
+  
+Output:
+java version "12" 2019-03-19
+Java(TM) SE Runtime Environment (build 12+33)
+Java HotSpot(TM) 64-Bit Server VM (build 12+33, mixed mode, sharing)
+
+
+Done !!
+
+
