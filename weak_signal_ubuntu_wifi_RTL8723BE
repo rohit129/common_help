@@ -1,0 +1,35 @@
+Important link to follow: 
+https://connectwww.com/how-to-solve-realtek-rtl8723be-weak-wifi-signal-problem-in-ubuntu/4625/
+
+Firstly check the wifi driver:
+   $ sudo lshw -class network
+
+If the wifi driver is RTL8723BE then follow the instructions:
+
+Step 1:
+Download the driver from github: 
+   link: https://github.com/lwfinger/rtlwifi_new
+  
+Step 2:
+You will need to install "make", "gcc", "kernel headers", "kernel build essentials", and "git".
+If you are running Ubuntu, then
+
+  $ sudo apt-get install linux-headers-generic build-essential git
+
+Step 3:
+Extract the zip folder and move inside the direcctory and follow the instructions:
+  $ cd rtlwifi_new-master/
+  $ make
+  $ sudo make install
+  $ sudo modprobe -rv rtl8723be
+  $ sudo modprobe -v rtl8723be ant_sel=2
+  $ sudo ip link set <<wlp_number>> up    ( <<wlp_number>> : example- wlp3s0 , wlp2s0, etc --> This can be obtained by -->  $ iwconfig )
+  $ sudo iw dev <<wlp_number>> scan
+  $ echo "options rtl8723be ant_sel=2" | sudo tee /etc/modprobe.d/50-rtl8723be.conf
+  
+We are done but then please follow the link for some important points we need to know. 
+Link: https://connectwww.com/how-to-solve-realtek-rtl8723be-weak-wifi-signal-problem-in-ubuntu/4625/
+  
+
+
+  
