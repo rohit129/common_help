@@ -1,0 +1,11 @@
+Copy the repository for experimentation purpose
+===============================================
+
+Step-1: Clone the Repository 
+        $ git clone https://github.com/OTHER_USR/ORIG_REPO.git
+Step-2: Change the directory to the clone repository
+        $ cd ORIG_REPO
+Step-3: Change the origin pointer to your repository  
+        $ git remote set-url origin https://github.com/YOUR_USERNAME/Your_Repo.git
+Step-4: Push the code to your repository
+        $ git push -u origin
