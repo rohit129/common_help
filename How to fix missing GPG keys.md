@@ -32,13 +32,15 @@ Try the below link to resolve the issue:
 2) [Solution2](https://unix.stackexchange.com/questions/75892/keyserver-timed-out-when-trying-to-add-a-gpg-public-key)
 
 
-If both didnot work then try this method mentioned in the ( Link: https://askubuntu.com/questions/127326/how-to-fix-missing-gpg-keys )
-Probable reason that the above methods not work because of firewall. Steps are as follows:
+If both didnot work then try this method mentioned in the Link: https://askubuntu.com/questions/127326/how-to-fix-missing-gpg-keys .
 
-  **Step-1:** Open the webpage of Ubuntu Key Server (Link: http://keyserver.ubuntu.com/) in your web browser and search for the string 0x<hexadecimal code of your missing key>.
-          Example: Search 0x3B4FE6ACC0B21F32
+Probable reason that the above methods not work because of firewall. Resolution steps are as follows:
 
-  **Step-2:** The result of the search given such as-
+  **Step-1:** Open the webpage of [Ubuntu Key Server](http://keyserver.ubuntu.com/) in your web browser and search for the string 0x\<hexadecimal code of your missing key\>.
+        
+   >For Example: If key is 3B4FE6ACC0B21F32 then search 0x3B4FE6ACC0B21F32
+
+  **Step-2:** The sample result of the search given such as-
 ```  
 -----BEGIN PGP PUBLIC KEY BLOCK-----
 Comment: Hostname: 
@@ -67,3 +69,5 @@ I++g+zWd/URh4fX6ZoG7RAPheJapkP/ELNfmIWhfDc4/UZW8L0XNqvQc
   ```
   $ sudo apt-key add <file-with-saved-key>
   ```   
+  
+  Thanks
