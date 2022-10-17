@@ -1,4 +1,5 @@
-**Visual Studio Help**
+**Visual Studio Code Help**
+===========================
 
 **Query 1:** ***Proxy setting in Visual Studio Code***
 
