@@ -18,6 +18,7 @@ Step 3: Edit "settings.json"
 
 Done!!
 
+===========
 
 **Query 2:** ***How to CUDA enable device in debugger mode (Visual Studio Code)***
 
